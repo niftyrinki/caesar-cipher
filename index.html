@@ -44,80 +44,47 @@
 		return (ch.charCodeAt(0) > 96 && ch.charCodeAt(0) < 123);
 	}
 
-	encryptBtn.addEventListener("click",function() {
+	encryptBtn.addEventListener("click", function() {
+		crypt(parseInt(num.value),plain1,cipher1);
+	},false);
 
+	decryptBtn.addEventListener("click", function() {
+		crypt(parseInt(num.value) * -1, cipher2, plain2);
+	},false);
+
+	function crypt(k, plain, cipher) {
 		var a = [];
 		var x;
 
-		for(var i = 0; i < plain1.value.length; i++) {
+		for(var i = 0; i < plain.value.length; i++) {
 
-			var ch = plain1.value.charAt(i);
+			var ch = plain.value.charAt(i);
+			x = (ch.charCodeAt(0) + k);
+			if (isUpper(ch))  {
+				
+				if( x > 90 ) {
+					x -= 26;
+				}
 
-			 if (isUpper(ch))  {
-			 	x = (ch.charCodeAt(0) + 4);
-			 	if( x > 90 ) {
-			 		x -= 26;
-			 	}
+				if(x < 65) {
+					x += 26;
+				}
+				
+				a.push(String.fromCharCode(x));
+			} else if (isLower(ch))  {
+				if( x > 122 ) {
+					x -= 26;
+				}
 
-			 	if(x < 65) {
-			 		x += 26;
-			 	}
-			 	
-			 	a.push(String.fromCharCode(x));
-			 }
-			 if (isLower(ch))  {
-			 	x = (ch.charCodeAt(0) + 4);
-			 	if( x > 122 ) {
-			 		x -= 26;
-			 	}
-
-			 	if(x < 97) {
-			 		x += 26;
-			 	}
-			 	
-			 	a.push(String.fromCharCode(x));
-			 }
-			
+				if(x < 97) {
+					x += 26;
+				}
+				
+				a.push(String.fromCharCode(x));
+			}
 		}
-		cipher1.value = a.join('');
-	},false);
 
-	decryptBtn.addEventListener("click",function() {
-
-		var a = [];
-		var x;
-
-		for(var i = 0; i < cipher2.value.length; i++) {
-
-			var ch = cipher2.value.charAt(i);
-
-			 if (isUpper(ch))  {
-			 	x = (ch.charCodeAt(0) - 4);
-			 	if( x > 90 ) {
-			 		x -= 26;
-			 	}
-
-			 	if(x < 65) {
-			 		x += 26;
-			 	}
-			 	
-			 	a.push(String.fromCharCode(x));
-			 }
-			 if (isLower(ch))  {
-			 	x = (ch.charCodeAt(0) - 4);
-			 	if( x > 122 ) {
-			 		x -= 26;
-			 	}
-
-			 	if(x < 97) {
-			 		x += 26;
-			 	}
-			 	
-			 	a.push(String.fromCharCode(x));
-			 }
-			
-		}
-		plain2.value = a.join('');
-	},false);
+		cipher.value = a.join('');
+	}
 	</script>
 </html>
