@@ -26,7 +26,7 @@
 
 	var plain1 = document.getElementById('plain1');
 	var cipher1 = document.getElementById('cipher1');
-	var cipher2 = document.getElementById('cipher2').value;
+	var cipher2 = document.getElementById('cipher2');
 	var plain2 = document.getElementById('plain2');
 	var encryptBtn = document.getElementById('encryptBtn');
 	var decryptBtn = document.getElementById('decryptBtn');
@@ -76,6 +76,44 @@
 			
 		}
 		cipher1.value = a.join('');
+	},false);
+
+	decryptBtn.addEventListener("click",function() {
+
+		var a = [];
+		var x;
+
+		for(var i = 0; i < cipher2.value.length; i++) {
+
+			var ch = cipher2.value.charAt(i);
+
+			 if (isUpper(ch))  {
+			 	x = (ch.charCodeAt(0) - 4);
+			 	if( x > 90 ) {
+			 		x -= 26;
+			 	}
+
+			 	if(x < 65) {
+			 		x += 26;
+			 	}
+			 	
+			 	a.push(String.fromCharCode(x));
+			 }
+			 if (isLower(ch))  {
+			 	x = (ch.charCodeAt(0) - 4);
+			 	if( x > 122 ) {
+			 		x -= 26;
+			 	}
+
+			 	if(x < 97) {
+			 		x += 26;
+			 	}
+			 	
+			 	a.push(String.fromCharCode(x));
+			 }
+			
+		}
+		plain2.value = a.join('');
 	},false);
 	</script>
 </html>
