@@ -7,17 +7,21 @@
 		<diV class="wrapper">
 			<h1>Caesar Ciphers: Encrypting and Decrypting</h1>
 			<div class="container">
+			<div class="key"><input type="number" placeholder="Enter key" id="num"/></div>
 				<div class="encrypt">
+					<h3>Encryption</h3>
 					<input type="text" placeholder="Enter Plain Text" id="plain1"/>
 					<button type="button" id="encryptBtn">Encrypt</button>
 					<input type="text" placeholder="Cipher Text" id="cipher1"/>
 				</div>
 				<div class="decrypt">
+					<h3>Decryption</h3>
 					<input type="text" placeholder="Enter Cipher Text" id="cipher2"/>
 					<button type="button" id="decryptBtn">Decrypt</button>
 					<input type="text" placeholder="Plain Text" id="plain2"/>
 				</div>
 			</div>
+
 		</diV>
 	</body>
 
@@ -30,7 +34,7 @@
 	var plain2 = document.getElementById('plain2');
 	var encryptBtn = document.getElementById('encryptBtn');
 	var decryptBtn = document.getElementById('decryptBtn');
-
+	var num = document.getElementById('num');
 
 	function isUpper(ch) {
 		return (ch.charCodeAt(0) > 64 && ch.charCodeAt(0) < 91);

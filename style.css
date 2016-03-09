@@ -48,3 +48,14 @@ button {
 	border: 1px solid #131331;
 	border-radius: 2px;
 }
+
+
+.key {
+	width: 100%;
+	text-align: center;
+}
+
+
+.key  input {
+	width : 150px;
+}
