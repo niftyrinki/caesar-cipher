@@ -8,16 +8,74 @@
 			<h1>Caesar Ciphers: Encrypting and Decrypting</h1>
 			<div class="container">
 				<div class="encrypt">
-					<input type="text" placeholder="Enter Plain Text"/>
-					<button type="button">Encrypt</button>
-					<input type="text" placeholder="Cipher Text"/>
+					<input type="text" placeholder="Enter Plain Text" id="plain1"/>
+					<button type="button" id="encryptBtn">Encrypt</button>
+					<input type="text" placeholder="Cipher Text" id="cipher1"/>
 				</div>
 				<div class="decrypt">
-					<input type="text" placeholder="Enter Cipher Text"/>
-					<button type="button">Decrypt</button>
-					<input type="text" placeholder="Plain Text"/>
+					<input type="text" placeholder="Enter Cipher Text" id="cipher2"/>
+					<button type="button" id="decryptBtn">Decrypt</button>
+					<input type="text" placeholder="Plain Text" id="plain2"/>
 				</div>
 			</div>
 		</diV>
 	</body>
+
+
+	<script type="text/javascript">
+
+	var plain1 = document.getElementById('plain1');
+	var cipher1 = document.getElementById('cipher1');
+	var cipher2 = document.getElementById('cipher2').value;
+	var plain2 = document.getElementById('plain2');
+	var encryptBtn = document.getElementById('encryptBtn');
+	var decryptBtn = document.getElementById('decryptBtn');
+
+
+	function isUpper(ch) {
+		return (ch.charCodeAt(0) > 64 && ch.charCodeAt(0) < 91);
+	}
+
+	function isLower(ch) {
+		return (ch.charCodeAt(0) > 96 && ch.charCodeAt(0) < 123);
+	}
+
+	encryptBtn.addEventListener("click",function() {
+
+		var a = [];
+		var x;
+
+		for(var i = 0; i < plain1.value.length; i++) {
+
+			var ch = plain1.value.charAt(i);
+
+			 if (isUpper(ch))  {
+			 	x = (ch.charCodeAt(0) + 4);
+			 	if( x > 90 ) {
+			 		x -= 26;
+			 	}
+
+			 	if(x < 65) {
+			 		x += 26;
+			 	}
+			 	
+			 	a.push(String.fromCharCode(x));
+			 }
+			 if (isLower(ch))  {
+			 	x = (ch.charCodeAt(0) + 4);
+			 	if( x > 122 ) {
+			 		x -= 26;
+			 	}
+
+			 	if(x < 97) {
+			 		x += 26;
+			 	}
+			 	
+			 	a.push(String.fromCharCode(x));
+			 }
+			
+		}
+		cipher1.value = a.join('');
+	},false);
+	</script>
 </html>
