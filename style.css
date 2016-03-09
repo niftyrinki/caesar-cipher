@@ -1,0 +1,50 @@
+.wrapper {
+	text-align: center;
+	padding: 0 100px;
+}
+
+
+.container {
+	padding: 20px;
+	background-color: #555555;
+	display: inline-block;
+	margin-top: 100px;
+
+
+}
+
+
+.encrypt {
+	padding: 20px;
+	margin-right: 10px;
+	width: 40%;
+	text-align: center;
+	float: left;
+}
+
+
+.decrypt {
+	padding: 20px;
+	margin-left: 10px;
+	float: right;
+	width: 40%;
+	text-align: center;
+}
+
+
+input {
+	width: 100%;
+	margin: 10px;
+	height: 40px;
+	padding: 0 10px;
+}
+
+
+button {
+	margin: 10px;
+	background-color: #131331;
+	padding: 10px 20px;
+	color: #ffffff;
+	border: 1px solid #131331;
+	border-radius: 2px;
+}
