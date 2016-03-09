@@ -6,6 +6,7 @@ var encryptBtn = document.getElementById('encryptBtn');
 var decryptBtn = document.getElementById('decryptBtn');
 var num = document.getElementById('num');
 var error = document.getElementById('error');
+var reset = document.getElementById('reset');
 
 function isUpper(ch) {
 	return (ch.charCodeAt(0) > 64 && ch.charCodeAt(0) < 91);
@@ -21,6 +22,14 @@ encryptBtn.addEventListener("click", function() {
 
 decryptBtn.addEventListener("click", function() {
 	crypt(parseInt(num.value) * -1, cipher2, plain2);
+},false);
+
+reset.addEventListener("click", function() {
+	plain1.value = " ";
+	plain2.value = " ";
+	cipher1.value = " ";
+	cipher2.value = " ";
+
 },false);
 
 function crypt(k, plain, cipher) {
