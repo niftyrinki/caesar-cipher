@@ -5,6 +5,7 @@ var plain2 = document.getElementById('plain2');
 var encryptBtn = document.getElementById('encryptBtn');
 var decryptBtn = document.getElementById('decryptBtn');
 var num = document.getElementById('num');
+var error = document.getElementById('error');
 
 function isUpper(ch) {
 	return (ch.charCodeAt(0) > 64 && ch.charCodeAt(0) < 91);
@@ -25,6 +26,10 @@ decryptBtn.addEventListener("click", function() {
 function crypt(k, plain, cipher) {
 	var a = [];
 	var x;
+	if(!k) {
+		error.innerHTML = "Please Enter Key First";
+		return;
+	}
 
 	for(var i = 0; i < plain.value.length; i++) {
 

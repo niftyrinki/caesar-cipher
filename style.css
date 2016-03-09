@@ -9,6 +9,7 @@
 	background-color: #555555;
 	display: inline-block;
 	margin-top: 100px;
+	color: #ffffff;
 
 
 }
@@ -51,6 +52,11 @@ button {
 
 
 .key {
+	width: 100%;
+	text-align: center;
+}
+
+.error {
 	width: 100%;
 	text-align: center;
 }
